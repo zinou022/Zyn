@@ -1,0 +1,437 @@
+BUTEC HSE INTEGRATED PLATFORM
+
+Functional Requirements Document
+
+What the platform must do, and why. Prepared for BUTEC management.
+
+  ------------------------------------------------------------------------------
+  Version    Status                        Date             Prepared by
+  ---------- ----------------------------- ---------------- --------------------
+  2.0        Draft for management review   7 October 2026   Brik Zine Eddine
+
+  ------------------------------------------------------------------------------
+
+1. The project in brief
+
+The BUTEC HSE Integrated Platform is one web platform that brings the company’s HSE work into a single place. It has a Portal, which is the entry door, and a set of applications behind it. Each application covers one HSE process from start to finish.
+
+Where the idea comes from
+
+HSE information at BUTEC lived in many separate places: monthly statistics in Excel files, KPI and audit checklists in PDF, investigation reports and witness statements in Word, observations and worker documents in other files and emails. Every project reported in its own way. Follow-up depended on people chasing each other, and information was lost when a person moved or a project ended.
+
+The platform was created to replace this with one controlled system: one login, one set of data, one way of working on every project.
+
+What the Portal is
+
+The Portal is the single front door. A user signs in once and sees only the projects and applications that match their role. The Portal also holds the project register, the user directory, announcements and notifications, and the platform backups. Applications do not keep their own users or projects; they all take them from the Portal.
+
+[overview workflow]
+
+Figure 1. The Portal home page after sign-in: one card for each application the user may open.
+
+2. What platform must achieve
+
+  -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  Centralisation                                                                                                                          Automation                                                                                                                                          Retention
+  --------------------------------------------------------------------------------------------------------------------------------------- --------------------------------------------------------------------------------------------------------------------------------------------------- ---------------------------------------------------------------------------------------------------------------------------------
+  All HSE processes, users, projects and results in one place, with one login, one look and one set of rules. No parallel spreadsheets.   The system assigns, reminds, calculates and reports by itself. People do the work; the system does the chasing, the arithmetic and the paperwork.   Nothing about a project is lost. Records are voided or archived, never erased. Every change is traced. Everything is backed up.
+
+  -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+These three goals drive every requirement in this document. Section 4 states them as platform-wide requirements; Section 5 applies them application by application.
+
+3. Who uses the platform
+
+  -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  Group                               What they do on the platform
+  ----------------------------------- -----------------------------------------------------------------------------------------------------------------------------------
+  System owner                        Controls projects, users and roles; sets targets and templates; reviews and accepts or returns submitted reports.
+
+  Corporate and country HSE           Follow performance and incidents across several projects.
+
+  Project HSE managers and officers   Complete the monthly reports, run investigations and observations on their project.
+
+  Project management                  Follow the project’s HSE status and take decisions on it.
+
+  Site and support staff              Engineers, supervisors, trainers, nurses, HR, logistics, security and others use only the applications that match their function.
+
+  All employees and visitors          Raise observations and read task instructions.
+  -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Access is always limited by project and by role. A person sees only what their role needs on the projects they belong to.
+
+4. Platform-wide requirements
+
+  ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  Requirement                       The system shall…                                                                                                                                                             Why it matters
+  --------------------------------- ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- --------------------------------------------------------------------
+  Centralisation                                                                                                                                                                                                  
+
+  Single sign-in                    Give each user one sign-in for every application they are entitled to.                                                                                                        No multiple accounts and passwords.
+
+  One central register              Keep one register of projects, users and roles in the Portal, used by all applications.                                                                                       Data is entered once and is the same everywhere.
+
+  Access by role and project        Limit what each user sees by project and role.                                                                                                                                Confidentiality and clear accountability.
+
+  Notifications and announcements   Send assignments, returns, deadlines and overdue items to users as in-app notifications, and publish announcements.                                                           People are informed without emails and calls.
+
+  Search and common look            Offer one search across the platform and one common look and behaviour in every application.                                                                                  Easy to learn; staff move between applications without retraining.
+
+  Automation                                                                                                                                                                                                      
+
+  Automatic assignment              Create recurring reports and assign them automatically (monthly), to the right person.                                                                                        No one has to remember or be reminded.
+
+  Deadlines and reminders           Apply deadlines automatically, flag late items and send reminders.                                                                                                            Late work is visible early, without manual follow-up.
+
+  Automatic calculation             Calculate scores, rates and targets automatically and reuse data between applications (incident data feeds statistics).                                                       Removes calculation errors and double entry.
+
+  Automatic outputs                 Produce outputs automatically: dashboards, Word reports, printable forms.                                                                                                     Management gets results without rebuilding them by hand.
+
+  Retention of information                                                                                                                                                                                        
+
+  No deletion                       Never let users delete records. Mistakes are voided with a reason, who and when; finished items are archived.                                                                 The history of a project is always complete.
+
+  Fixed versions                    Keep every submitted or approved record as a fixed version. A correction creates a new version; comments and replies stay attached.                                           Shows what was reported, reviewed and changed.
+
+  Audit trail                       Record who did what and when on every record. For incidents the history can only be added to, never changed.                                                                  Evidence for audits, clients and investigations.
+
+  Long-term retention               Keep project data readable after the project closes, and keep a person’s records after they leave or transfer. Before deactivating a user or project, show what it affects.   Knowledge stays with the company, not with individuals.
+
+  Automatic backups                 Back up all data automatically and keep a backup before every change to the live system.                                                                                      A failure or a mistake never means lost data.
+
+  History import                    Import existing spreadsheet history into the platform.                                                                                                                        Past years are brought in, not abandoned.
+  ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+5. Applications
+
+Each application below states its purpose, shows its workflow and lists what it must do. In every diagram the colour shows who acts.
+
+[legend workflow]
+
+5.1 Portal
+
+Purpose. The single entry point: it controls who can reach which project and application. Used by: System owner, all users.
+
+[portal workflow]
+
+Figure 2. Portal workflow.
+
+  ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  Requirement                The system shall…                                                                                                                             Why it matters
+  -------------------------- --------------------------------------------------------------------------------------------------------------------------------------------- --------------------------------------------------------
+  Project register           Maintain the project register: create projects, set their leadership, choose the applications each project uses, and close or archive them.   The Portal alone decides what exists.
+
+  User directory             Maintain the user directory: create users, give one or several roles, move people between projects, deactivate and reset access.              Control over who has access.
+
+  Application cards          Show each user a card for each application they may open.                                                                                     Simple, uniform navigation.
+
+  Announcements and search   Provide announcements, notifications and global search.                                                                                       One channel for communication.
+
+  Controlled matrices        Let the owner upload, review and approve controlled matrices and boarding requirements by country and project.                                Requirements are set centrally and applied everywhere.
+
+  Health and backups         Show system health, data-quality checks and backups, and allow a backup on demand.                                                            The owner can trust and recover the data.
+  ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+5.2 Boarding System
+
+Purpose. Controls who may enter and work on a project: documents, medical fitness, training and access, from arrival to departure. Used by: Boarding officer, HR, medical staff, trainers, security.
+
+[brd workflow]
+
+Figure 3. Boarding workflow.
+
+  -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  Requirement                 The system shall…                                                                                                                                          Why it matters
+  --------------------------- ---------------------------------------------------------------------------------------------------------------------------------------------------------- ----------------------------------------------
+  Worker record               Keep one record per person (BUTEC staff, subcontractor, client, consultant, visitor) with company and project.                                             One identity per worker.
+
+  Document expiry             Register documents with expiry dates, apply the requirements set by country and project, and send reminders before expiry.                                 No one works with expired papers.
+
+  Medical fitness             Record the medical result (fit, fit with restrictions, unfit, needs reassessment) with a printable exam form. Restrict medical details to medical roles.   Medical privacy and clear fitness status.
+
+  Training record             Record induction and training attendance, with a printable attendance sheet.                                                                               Proof of training.
+
+  Pass and gate log           Issue the access pass and ID card, keep a gate log of entries and exits, and allow a pass to be revoked.                                                   Only cleared people enter.
+
+  Transfers and offboarding   Handle transfers between projects and offboarding without losing history, and provide compliance reports (expiry, overdue actions, training status).       Complete personnel history; management view.
+  -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+5.3 HSE Statistics
+
+Purpose. Replaces the monthly statistics spreadsheets. Each project reports the same indicators every month, and results are compared with targets. Used by: Project HSE manager (fills), system owner (reviews).
+
+[stats workflow]
+
+Figure 4. HSE Statistics workflow. The owner can reopen an accepted report, with a reason, for correction.
+
+  -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  Requirement             The system shall…                                                                                                                                               Why it matters
+  ----------------------- --------------------------------------------------------------------------------------------------------------------------------------------------------------- -------------------------------------------------------------
+  Monthly report          Hold one report per project per month, with indicators in three groups: statistics, leading and lagging. A month cannot be assigned twice.                      Same structure on every project.
+
+  Automatic assignment    Assign each report automatically to the project HSE Manager, with a 7-day deadline, an overdue notice and monthly creation.                                     No manual chasing.
+
+  Automatic calculation   Calculate rates (per 200,000 man-hours), emissions from fuel and totals, and bring in incident figures from the Incident application.                           Accurate figures, entered once.
+
+  Targets and periods     Set a target per indicator with an effective period; when a target changes, ask from when it applies. Show targets met or not met.                              Performance is judged against the target valid at the time.
+
+  Editable indicators     Let the owner add or remove indicators and edit targets.                                                                                                        The system follows company needs.
+
+  Line-by-line review     Let the owner comment on each line, accept or return the report, show returned lines in red, let the assignee reply on the same comment, and allow reopening.   Corrections are traceable, with no side emails.
+
+  Dashboard               Provide a dashboard with period selection and click-to-highlight, in the same style as the OBS Tracker.                                                         Management sees performance at a glance.
+  -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+5.4 Audit and KPI
+
+Purpose. Replaces the PDF checklists used for the monthly KPI assessment of each project (HSE, HR and ADNOC assurance). Used by: Assigned assessor (scores), system owner (reviews).
+
+[kpi workflow]
+
+Figure 5. Audit and KPI workflow. Review, return and reopen work exactly as in HSE Statistics.
+
+  -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  Requirement                 The system shall…                                                                                                                                                Why it matters
+  --------------------------- ---------------------------------------------------------------------------------------------------------------------------------------------------------------- --------------------------------------------
+  Original checklist format   Reproduce each checklist with the same table format, weights and scoring as the original PDF.                                                                    Results stay valid for audits and clients.
+
+  Score validation            Accept only positive numbers that do not exceed the line’s weight, with a pop-up reminder when the entry is wrong. Lines marked N/A are left out of the score.   Prevents scoring errors.
+
+  Completeness check          Block submission while lines are missing and highlight them in light red.                                                                                        Complete assessments only.
+
+  Total score                 Calculate and show the total score of each sheet by the rule of that checklist.                                                                                  One clear result per sheet.
+
+  Monthly automation          Create assessments monthly, assign them automatically (same person as last time), allow manual creation, and apply the 7-day deadline and overdue notices.       No manual chasing.
+
+  Templates and dashboard     Let the owner maintain the checklist templates, and provide a dashboard in the OBS Tracker style.                                                                Controlled templates; management view.
+  -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+5.5 OBS Tracker
+
+Purpose. Captures safety observations from site and follows each one to a validated close-out. Used by: Anyone on site (raise); action owner; reviewer.
+
+[obs workflow]
+
+Figure 6. OBS Tracker workflow.
+
+  ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  Requirement               The system shall…                                                                                                                                         Why it matters
+  ------------------------- --------------------------------------------------------------------------------------------------------------------------------------------------------- ----------------------------------------
+  Easy reporting            Let anyone raise an observation with category, risk rating, priority and photo, through the application or a public QR page, even with weak connection.   Easy to report; more observations.
+
+  Priority deadlines        Set the deadline from the priority: Critical 24 h, High 72 h, Medium 120 h, Low 168 h. Flag overdue items and escalate them automatically.                Urgent items are never left behind.
+
+  Discussion and evidence   Keep the discussion and evidence with the observation.                                                                                                    Full story in one record.
+
+  Validated close-out       Require evidence at close-out and validation by the reviewer within 24 hours; a rejection returns it to the action owner.                                 Closed means truly closed.
+
+  Inspections and reports   Manage inspection checklists and focus inspections, and provide a dashboard and reports with filters.                                                     Targeted inspections; management view.
+
+  No deletion               Void or archive observations; never delete them.                                                                                                          History kept.
+  ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+5.6 Equipment Management
+
+Purpose. Makes sure every machine and vehicle on a project has valid documents and inspections before and during use. Used by: Equipment coordinator, storekeeper, HSE.
+
+[eqp workflow]
+
+Figure 7. Equipment workflow.
+
+  -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  Requirement                   The system shall…                                                                                 Why it matters
+  ----------------------------- ------------------------------------------------------------------------------------------------- ---------------------------------------
+  Asset register                Keep an asset register by equipment type, where each type defines its required documents.         Requirements depend on the equipment.
+
+  Document verification         Let documents be uploaded, then verified or rejected by the coordinator.                          Only checked equipment goes to work.
+
+  Mobilization control          Mobilize an asset to a project only after verification; flag expiring documents automatically.    Safe, compliant equipment.
+
+  Inspections and maintenance   Log inspections and maintenance for each asset.                                                   Equipment condition is known.
+
+  Demobilization and import     Demobilize assets while keeping their history, and import existing registers from spreadsheets.   Past records are kept; fast start.
+
+  Dashboard and reports         Provide an equipment dashboard and reports.                                                       Management view.
+  -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+5.7 Task Instruction
+
+Purpose. Gives the crew a clear, reviewed instruction before a task starts, so risks and controls are understood. Used by: Supervisor (prepares), HSE team (reviews), crew (reads).
+
+[ti workflow]
+
+Figure 8. Task Instruction workflow.
+
+  ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  Requirement                   The system shall…                                                                                     Why it matters
+  ----------------------------- ----------------------------------------------------------------------------------------------------- ----------------------------------------
+  Catalogue-based instruction   Let a supervisor prepare an instruction from a controlled catalogue of tasks, hazards and controls.   Consistent content, less typing.
+
+  Crew and review               Select the crew from the project roster and send the instruction to the HSE team for review.          Right people briefed; HSE has control.
+
+  Link or QR access             Give the crew access to the issued instruction by link or QR code, without a separate account.        Reaches the people on the ground.
+
+  Closure record                Close the instruction when the task ends and keep it as a record.                                     Proof of briefing.
+  ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+5.8 Incident Investigation
+
+Purpose. Manages an event from the first report to closed corrective actions, and keeps a permanent record of it. Used by: Anyone reports; HSE investigates; owner reviews.
+
+[inc workflow]
+
+Figure 9. Incident Investigation workflow.
+
+  -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  Requirement                    The system shall…                                                                                                                         Why it matters
+  ------------------------------ ----------------------------------------------------------------------------------------------------------------------------------------- ------------------------------------------
+  Event reporting and severity   Let an authorised user report an event and assess its severity by domain, giving a governing level of Low, Medium or High.                Response is proportionate to severity.
+
+  Investigation deadlines        Set investigation deadlines of 3, 7 or 14 days from the event date according to the level, and flag late investigations automatically.    Investigations are done on time.
+
+  Single case file               Keep facts, witness statements, root cause (SCAT) and corrective actions in one case file.                                                Everything about the event in one place.
+
+  Review and approval            Let the reviewer comment line by line and return or approve the report. An approved report becomes a fixed copy that can be circulated.   What was circulated can always be shown.
+
+  Word report                    Generate the investigation report as a Word document automatically.                                                                       No retyping.
+
+  No deletion                    Never delete an event. Mistaken events are voided with a reason; the history cannot be altered, even by administrators.                   Legal and learning value of the record.
+
+  Statistics link                Feed incident figures into HSE Statistics and show an incident dashboard.                                                                 One source for incident numbers.
+  -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+6. Documents produced and saved
+
+Every document the platform produces, or receives from a user, is saved by the system itself in a fixed folder structure. Nothing is filed by hand. Each document carries the project, the date, the author and a version number, and nothing is ever deleted: a correction becomes a new version and the earlier one stays (see Retention of information in Section 4).
+
+6.1 How the folders are organised
+
+The folders are split in two branches. The Corporate (E&C) branch is kept once for the whole company: it holds the standards every project uses, the platform records, and the results consolidated across projects and countries. The Project branch is repeated for every project: each project has its own complete set of folders, for example Project / PSM-13 / HSE Statistics Records / Monthly Statistics Reports / 2026-08. A file name states the project, the document and the period, for example PSM-13_Monthly-Statistics_2026-08_v2.
+
+Within each branch, L1 folders group the documents of one area and L2 folders hold the documents themselves. Access follows the groups of Section 3 and is always limited by project and role. Access (R/W) lists who may create or change a document in its application. Access (R) lists who may only read it. Where the system writes a document by itself, nobody types it.
+
+6.2 Corporate (E&C) folders (To be developed further)
+
+  ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  Level   Folder Name                              Parent Folder                         Description                                                                           Access (R/W)                                      Access (R)
+  ------- ---------------------------------------- ------------------------------------- ------------------------------------------------------------------------------------- ------------------------------------------------- --------------------------------------------------------
+  L1      Platform Records                         N/A                                   Records kept by the Portal for the whole company.                                     System owner                                      All BUTEC
+
+  L2      Announcements                            Platform Records                      Published announcements with audience, priority and dates.                            System owner                                      All BUTEC
+
+  L2      Audit Trail                              Platform Records                      Records of who did what and when across the platform, exportable on request.          The system (automatic)                            System owner
+
+  L2      Backups                                  Platform Records                      Automatic backups and the backup taken before every change to the live system.        The system (automatic)                            System owner
+
+  L1      Controlled Templates and Catalogues      N/A                                   Company-wide standards used by every project; every version kept.                     System owner                                      Corporate and, Project HSE managers
+
+  L2      Statistics Indicators and Targets        Controlled Templates and Catalogues   Indicator list, formulas and target history with the period each target applies to.   System owner                                      Corporate and Project HSE managers, Project management
+
+  L2      KPI Checklist Templates                  Controlled Templates and Catalogues   Master template of each KPI checklist (HSE, HR and ADNOC Assurance).                  System owner                                      Corporate and Project HSE managers
+
+  L2      Task Catalogue                           Controlled Templates and Catalogues   Controlled catalogue of tasks, hazards and controls.                                  System owner, Project HSE managers                Supervisors
+
+  L2      Equipment Types and Required Documents   Controlled Templates and Catalogues   Each equipment type with the documents it must have.                                  System owner                                      Equipment coordinators, Project HSE managers
+
+  L1      HSE Performance and Reporting            N/A                                   Results consolidated across projects and countries.                                   The system (automatic)                            Corporate and System owner
+
+  L2      Consolidated Statistics and KPIs         HSE Performance and Reporting         Statistics and KPI results of all projects and countries, with trends.                The system (automatic)                            Corporate and Project management, System owner
+
+  L2      Incident Analysis and Trends             HSE Performance and Reporting         Incident figures and trends across projects and countries.                            The system (automatic)                            Corporate and System owner
+
+  L1      HSE Knowledge and Lessons Learned        N/A                                   Good practices and warnings shared across projects.                                   Corporate and country HSE                         All employees
+
+  L2      Lessons Learned and SHE Alerts           HSE Knowledge and Lessons Learned     Lessons and alerts issued for Medium and High events.                                 Corporate and country HSE, Project HSE managers   All employees
+  ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+6.3 Project folders
+
+One set for each project. Corporate and country HSE read across all projects; every other group sees only the projects it is assigned to.
+
+  ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  Level   Folder Name                             Parent Folder              Description                                                                                                                                         Access (R/W)                                                                        Access (R)
+  ------- --------------------------------------- -------------------------- --------------------------------------------------------------------------------------------------------------------------------------------------- ----------------------------------------------------------------------------------- -----------------------------------------------------------------------------------
+  L1      Project Setup                           N/A                        How the project is set up in the Portal.                                                                                                            System owner                                                                        Project HSE managers, Project management
+
+  L2      Training Matrix                         Project Setup              Original matrix file as uploaded, with the approved extraction; one version for each upload.                                                        System owner                                                                        Project HSE managers, Project management
+
+  L2      Boarding Requirements                   Project Setup              Approved sets of mandatory training and documents for each type of worker; every version kept.                                                      System owner                                                                        Project HSE managers, Project management, Boarding officers
+
+  L1      Boarding Records                        N/A                        Personnel records of the project.                                                                                                                   Boarding officers                                                                   Project HSE managers, System owner
+
+  L2      Worker Documents                        Boarding Records           Identity, work permit and certificates, registered with expiry dates and verification result.                                                       Boarding officers                                                                   Project HSE managers, System owner
+
+  L2      Medical Exam Forms                      Boarding Records           Printable medical examination forms and the fitness result.                                                                                         Medical staff                                                                       System owner (project HSE managers see the fitness status only)
+
+  L2      Training Attendance Sheets              Boarding Records           Printable attendance sheets and results of each training session.                                                                                   Trainers                                                                            Project HSE managers, System owner
+
+  L2      Access Passes and ID Cards              Boarding Records           Issued and revoked passes and printed ID cards.                                                                                                     Boarding officers, Security                                                         Project HSE managers, System owner
+
+  L2      Gate Log                                Boarding Records           Every entry and exit with the gate decision and the reason.                                                                                         The system (automatic)                                                              Security, Project HSE managers, System owner
+
+  L2      Boarding Reports                        Boarding Records           Project summary, worker status, expiry compliance, overdue actions, training status, access cards and audit summary.                                The system (automatic)                                                              Project HSE managers, Project management, Corporate and country HSE, System owner
+
+  L1      HSE Statistics Records                  N/A                        Monthly statistics of the project.                                                                                                                  Project HSE managers, System owner                                                  Corporate and country HSE, Project management
+
+  L2      Monthly Statistics Reports              HSE Statistics Records     One report for each month as accepted: figures, targets met or not met, review comments and replies. A reopened report keeps its earlier version.   Project HSE manager (fills and submits); System owner (reviews, accepts, reopens)   Corporate and country HSE, Project management
+
+  L1      Audit and KPI Records                   N/A                        Monthly KPI assessments of the project.                                                                                                             Project HSE managers, System owner                                                  Corporate and country HSE, Project management
+
+  L2      HSE KPI Assessments                     Audit and KPI Records      Accepted monthly HSE sheets with scores, comments and the review trail.                                                                             Project HSE manager (fills); System owner (reviews)                                 Corporate and country HSE, Project management
+
+  L2      HR (Workers Welfare) Assessments        Audit and KPI Records      Accepted monthly HR sheets with scores, the contractor audit coefficient and the review trail.                                                      Project HSE manager (fills); System owner (reviews)                                 Corporate and country HSE, Project management
+
+  L2      ADNOC Assurance Assessments             Audit and KPI Records      Accepted ADNOC checklist sheets in the original table format, weights and scoring.                                                                  Project HSE manager (fills); System owner (reviews)                                 Corporate and country HSE, Project management
+
+  L1      OBS Records                             N/A                        Safety observations and inspections of the project.                                                                                                 Project HSE managers, Supervisors                                                   Corporate and country HSE, Project management, System owner
+
+  L2      Observations                            OBS Records                Each observation with photos, discussion, close-out evidence and validation.                                                                        Project HSE managers, Supervisors                                                   Corporate and country HSE, Project management, System owner
+
+  L2      Inspections                             OBS Records                Inspection checklists and completed focus inspections.                                                                                              Project HSE managers                                                                Corporate and country HSE, Project management, System owner
+
+  L2      OBS Reports                             OBS Records                Reports and dashboards exported with the chosen filters.                                                                                            The system (automatic)                                                              Project HSE managers, Project management, Corporate and country HSE, System owner
+
+  L1      Equipment Records                       N/A                        Machines and vehicles of the project.                                                                                                               Equipment coordinator                                                               Project HSE managers, System owner
+
+  L2      Equipment Passports                     Equipment Records          Asset record: type, owner, identification and mobilization and demobilization history.                                                              Equipment coordinator                                                               Project HSE managers, System owner
+
+  L2      Equipment Documents                     Equipment Records          Certificates, insurance and other documents of each type, with the result of verification.                                                          Equipment coordinator                                                               Project HSE managers, System owner
+
+  L2      Inspection and Maintenance Records      Equipment Records          Logged inspections, maintenance and HSE clearance of each asset.                                                                                    Equipment coordinator, Project HSE managers                                         Project management, System owner
+
+  L2      Equipment Access Cards and Checklists   Equipment Records          Printed access card and checklist of each asset.                                                                                                    The system (automatic)                                                              Equipment coordinator, Project HSE managers
+
+  L1      Task Instruction Records                N/A                        Pre-task instructions of the project.                                                                                                               Supervisors, Project HSE managers                                                   All employees (by link or QR code)
+
+  L2      Issued Task Instructions                Task Instruction Records   Each instruction with crew, hazards, controls, HSE review, time-stamped revisions and closure.                                                      Supervisors (prepare); Project HSE managers (review)                                All employees (by link or QR code)
+
+  L1      Incident Records                        N/A                        Restricted records of events and investigations of the project.                                                                                     Project HSE managers                                                                Corporate and country HSE, Project management, System owner
+
+  L2      Event Records                           Incident Records           Event report, severity assessment by domain, governing level and notifications sent.                                                                Project HSE managers                                                                Corporate and country HSE, Project management, System owner
+
+  L2      Investigation Case Files                Incident Records           Chronology, witness statements, evidence, root cause analysis and review comments.                                                                  Project HSE managers (investigation team)                                           Corporate and country HSE, Project management, System owner
+
+  L2      Investigation Reports                   Incident Records           Approved investigation report as a fixed Word document, with its circulation list.                                                                  The system (automatic)                                                              Project HSE managers, Project management, Corporate and country HSE, System owner
+
+  L2      Corrective Actions                      Incident Records           Actions with owner, due date, verification and effectiveness review.                                                                                Project HSE managers                                                                Corporate and country HSE, Project management, System owner
+  ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+7. Quality requirements
+
+  --------------------------------------------------------------------------------------------------------------------------------------------------------------
+  Area                        Requirement
+  --------------------------- ----------------------------------------------------------------------------------------------------------------------------------
+  Security                    Access only through secure connections; passwords protected; every action limited by role and project.
+
+  Availability and recovery   Automatic backups; a restore path that is tested before major changes.
+
+  Ease of use                 The same look, wording and behaviour in every application; short, simple screens; works on desktop, tablet and phone.
+
+  Cost                        Only free or open-source components, so the platform has no licence cost.
+
+  Reproducibility             Data structure changes are versioned and the source is documented, so the platform can be rebuilt and maintained by someone new.
+  --------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+8. Assumptions
+
+-   The platform runs on Microsoft 265 ecosystem.
