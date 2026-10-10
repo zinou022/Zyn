@@ -5,225 +5,165 @@
 <title>CV Template – BUTEC style</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
-  /* ===== BUTEC palette (sampled from the logo) — change here only ===== */
+  /* BUTEC palette (from the logo). Orange is used sparingly: edit here only. */
   :root{
     --orange:#FAA21C;
-    --black:#111111;
-    --ink:#222222;
-    --muted:#6b6b6b;
-    --line:#e6e6e6;
-    --paper:#ffffff;
-    --soft:#fff6e6;          /* light orange tint for tags / highlights */
+    --text:#1a1a1a;
+    --muted:#7a7a7a;
+    --line:#e4e4e4;
   }
   *{box-sizing:border-box;margin:0;padding:0}
-  html{background:#d9d9d9}
+  html{background:#e9e9e9}
   body{
     font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
-    color:var(--ink);font-size:9.6pt;line-height:1.45;
+    color:var(--text);font-size:9.5pt;line-height:1.5;
     -webkit-print-color-adjust:exact;print-color-adjust:exact;
   }
   .page{
-    width:210mm;height:297mm;margin:10mm auto;background:var(--paper);
-    display:grid;grid-template-columns:68mm 1fr;grid-template-rows:auto 1fr;
-    box-shadow:0 6px 30px rgba(0,0,0,.25);overflow:hidden;position:relative;
+    width:210mm;height:297mm;margin:10mm auto;background:#fff;
+    padding:16mm 18mm 14mm;position:relative;overflow:hidden;
+    box-shadow:0 4px 20px rgba(0,0,0,.15);
   }
+  .page::before{            /* the only strong accent: a thin orange top edge */
+    content:"";position:absolute;left:0;right:0;top:0;height:2.2mm;background:var(--orange);
+  }
+
   /* ---------- header ---------- */
-  header{
-    grid-column:1 / 3;background:var(--black);color:#fff;
-    display:flex;align-items:center;justify-content:space-between;
-    padding:9mm 10mm 8mm 10mm;border-bottom:3mm solid var(--orange);
+  header{display:flex;justify-content:space-between;align-items:flex-start}
+  h1{font-size:24pt;font-weight:300;letter-spacing:.01em;line-height:1.1}
+  h1 b{font-weight:700}
+  .role{margin-top:2mm;font-size:10.5pt;color:var(--muted);letter-spacing:.04em}
+  .logo{height:9mm;display:block;margin-top:1mm}
+
+  .contact{
+    display:flex;flex-wrap:wrap;gap:1mm 7mm;margin-top:7mm;padding:3.2mm 0;
+    border-top:.25mm solid var(--line);border-bottom:.25mm solid var(--line);
+    font-size:8.8pt;color:#444;
   }
-  .who h1{
-    font-size:25pt;line-height:1.05;font-weight:900;letter-spacing:.04em;
-    text-transform:uppercase;
+
+  /* ---------- sections: label column + content column ---------- */
+  section{
+    display:grid;grid-template-columns:34mm 1fr;column-gap:6mm;
+    padding:5mm 0 0;
   }
-  .who h1 span{color:var(--orange)}
-  .who .title{
-    margin-top:2.5mm;font-size:10.5pt;letter-spacing:.22em;text-transform:uppercase;
-    font-weight:600;color:#ddd;
+  section h2{
+    font-size:7.8pt;font-weight:600;letter-spacing:.16em;text-transform:uppercase;
+    color:var(--muted);padding-top:.8mm;
   }
-  .logo{height:13mm;display:block}
-  /* ---------- sidebar ---------- */
-  aside{background:#1b1b1b;color:#eee;padding:8mm 7mm 8mm 10mm}
-  .photo{
-    width:34mm;height:34mm;border-radius:50%;margin:0 auto 7mm;
-    border:1.2mm solid var(--orange);background:#333 center/cover;
-    display:flex;align-items:center;justify-content:center;
-    color:#888;font-size:7pt;letter-spacing:.1em;text-transform:uppercase;text-align:center;
+  .entry{margin-bottom:4mm}
+  .entry:last-child{margin-bottom:0}
+  .entry .head{display:flex;justify-content:space-between;gap:4mm}
+  .entry h3{font-size:10pt;font-weight:600}
+  .entry .date{font-size:8.6pt;color:var(--muted);white-space:nowrap}
+  .entry .org{font-size:9pt;color:var(--muted);margin-bottom:1mm}
+  .entry ul{list-style:none}
+  .entry li{position:relative;padding-left:3.5mm;margin-bottom:.6mm}
+  .entry li::before{
+    content:"";position:absolute;left:0;top:2.1mm;width:1.4mm;height:.3mm;background:var(--orange);
   }
-  aside section{margin-bottom:6.5mm}
-  aside h2{
-    font-size:8.8pt;font-weight:900;letter-spacing:.2em;text-transform:uppercase;
-    color:var(--orange);padding-bottom:1.6mm;margin-bottom:3mm;
-    border-bottom:.3mm solid #444;
-  }
-  .contact li{list-style:none;display:flex;gap:2.5mm;margin-bottom:2mm;font-size:8.8pt;word-break:break-word}
-  .contact .ic{color:var(--orange);font-weight:900;width:4mm;flex:none}
-  .skill{margin-bottom:2.6mm;font-size:8.8pt}
-  .skill .row{display:flex;justify-content:space-between}
-  .bar{height:1.4mm;background:#3a3a3a;margin-top:1mm}
-  .bar i{display:block;height:100%;background:var(--orange)}
-  .tags{display:flex;flex-wrap:wrap;gap:1.6mm}
-  .tags span{
-    border:.3mm solid #555;padding:.6mm 2.2mm;font-size:8pt;border-radius:1mm;
-  }
-  .lang{display:flex;justify-content:space-between;font-size:8.8pt;margin-bottom:1.6mm}
-  .lang em{font-style:normal;color:#aaa}
-  /* ---------- main ---------- */
-  main{padding:8mm 10mm 8mm 9mm}
-  main section{margin-bottom:6mm}
-  main h2{
-    display:flex;align-items:center;gap:3mm;
-    font-size:11pt;font-weight:900;letter-spacing:.18em;text-transform:uppercase;
-    color:var(--black);margin-bottom:3.5mm;
-  }
-  main h2::before{content:"";width:4mm;height:4mm;background:var(--orange);flex:none}
-  main h2::after{content:"";flex:1;height:.3mm;background:var(--line)}
-  .profile{font-size:9.8pt;color:#333;border-left:1mm solid var(--orange);padding-left:4mm}
-  .item{display:grid;grid-template-columns:27mm 1fr;gap:4mm;margin-bottom:4.2mm}
-  .item .when{font-size:8.4pt;font-weight:700;color:var(--muted);letter-spacing:.03em;padding-top:.6mm}
-  .item .when small{display:block;font-weight:400;margin-top:.6mm}
-  .item h3{font-size:10.4pt;font-weight:800;color:var(--black);line-height:1.25}
-  .item .org{font-size:9pt;font-weight:600;color:#b36f00;margin:.4mm 0 1.4mm}
-  .item ul{margin-left:4mm}
-  .item li{margin-bottom:.8mm}
-  .item li::marker{color:var(--orange)}
-  .kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:3mm}
-  .kpi{background:var(--soft);border-top:1mm solid var(--orange);padding:2.5mm 3mm}
-  .kpi b{display:block;font-size:15pt;font-weight:900;color:var(--black);line-height:1.1}
-  .kpi span{font-size:8pt;color:var(--muted);text-transform:uppercase;letter-spacing:.08em}
-  .hint{color:#aaa;font-style:italic}
-  /* ---------- print ---------- */
+  .plain p{margin-bottom:1mm}
+  .cols{display:grid;grid-template-columns:1fr 1fr;gap:0 8mm}
+  .row{display:flex;justify-content:space-between;border-bottom:.2mm solid #f0f0f0;padding:.7mm 0}
+  .row span:last-child{color:var(--muted)}
+
   @page{size:A4;margin:0}
-  @media print{
-    html{background:none}
-    .page{margin:0;box-shadow:none}
-  }
+  @media print{html{background:none}.page{margin:0;box-shadow:none}}
 </style>
 </head>
 <body>
 <div class="page">
 
-  <!-- ========== HEADER ========== -->
   <header>
-    <div class="who">
-      <h1>First <span>Lastname</span></h1>
-      <div class="title">Job Title · Specialty</div>
+    <div>
+      <h1>First <b>Lastname</b></h1>
+      <div class="role">Job title · Specialty</div>
     </div>
     <img class="logo" src="butec-logo.jpg" alt="BUTEC">
   </header>
 
-  <!-- ========== SIDEBAR : quick facts ========== -->
-  <aside>
-    <div class="photo">Your<br>photo</div>
+  <div class="contact">
+    <span>+00 000 000 000</span>
+    <span>name@email.com</span>
+    <span>City, Country</span>
+    <span>linkedin.com/in/yourname</span>
+  </div>
 
-    <section>
-      <h2>Contact</h2>
-      <ul class="contact">
-        <li><span class="ic">✆</span>+00 000 000 000</li>
-        <li><span class="ic">✉</span>name@email.com</li>
-        <li><span class="ic">⌖</span>City, Country</li>
-        <li><span class="ic">in</span>linkedin.com/in/yourname</li>
-      </ul>
-    </section>
+  <section>
+    <h2>Profile</h2>
+    <div class="plain"><p>Two to three lines: who you are, what you do best and what you are looking for. Lead with your strongest strength and one measurable result.</p></div>
+  </section>
 
-    <section>
-      <h2>Core skills</h2>
-      <div class="skill"><div class="row"><span>Skill one</span><span>●●●●●</span></div><div class="bar"><i style="width:95%"></i></div></div>
-      <div class="skill"><div class="row"><span>Skill two</span><span>●●●●○</span></div><div class="bar"><i style="width:80%"></i></div></div>
-      <div class="skill"><div class="row"><span>Skill three</span><span>●●●●○</span></div><div class="bar"><i style="width:75%"></i></div></div>
-      <div class="skill"><div class="row"><span>Skill four</span><span>●●●○○</span></div><div class="bar"><i style="width:60%"></i></div></div>
-    </section>
-
-    <section>
-      <h2>Tools &amp; software</h2>
-      <div class="tags"><span>Tool A</span><span>Tool B</span><span>Tool C</span><span>Tool D</span><span>Tool E</span></div>
-    </section>
-
-    <section>
-      <h2>Languages</h2>
-      <div class="lang"><span>Language 1</span><em>Native</em></div>
-      <div class="lang"><span>Language 2</span><em>Fluent</em></div>
-      <div class="lang"><span>Language 3</span><em>Intermediate</em></div>
-    </section>
-
-    <section>
-      <h2>Interests</h2>
-      <div class="tags"><span>Interest 1</span><span>Interest 2</span><span>Interest 3</span></div>
-    </section>
-  </aside>
-
-  <!-- ========== MAIN : story ========== -->
-  <main>
-    <section>
-      <h2>Profile</h2>
-      <p class="profile">Two to three lines: who you are, what you do best, and what you are looking for. Lead with your strongest strength and one measurable result.</p>
-    </section>
-
-    <section>
-      <h2>Key figures</h2>
-      <div class="kpis">
-        <div class="kpi"><b>00+</b><span>Projects delivered</span></div>
-        <div class="kpi"><b>00 yrs</b><span>Experience</span></div>
-        <div class="kpi"><b>00%</b><span>Key result</span></div>
+  <section>
+    <h2>Experience</h2>
+    <div>
+      <div class="entry">
+        <div class="head"><h3>Job title</h3><span class="date">2022 – Present</span></div>
+        <div class="org">Company name · City, Country</div>
+        <ul>
+          <li>Action verb + what you did + measurable result.</li>
+          <li>Action verb + scope (budget, team size, volume) + impact.</li>
+          <li>Action verb + tool or method + outcome.</li>
+        </ul>
       </div>
-    </section>
+      <div class="entry">
+        <div class="head"><h3>Job title</h3><span class="date">2019 – 2022</span></div>
+        <div class="org">Company name · City, Country</div>
+        <ul>
+          <li>Achievement with a number.</li>
+          <li>Responsibility that shows ownership.</li>
+        </ul>
+      </div>
+      <div class="entry">
+        <div class="head"><h3>Internship / earlier role</h3><span class="date">2017 – 2019</span></div>
+        <div class="org">Company name · City, Country</div>
+        <ul><li>One strong line is enough here.</li></ul>
+      </div>
+    </div>
+  </section>
 
-    <section>
-      <h2>Experience</h2>
-      <div class="item">
-        <div class="when">2022 – Present<small>City, Country</small></div>
-        <div>
-          <h3>Job title</h3>
-          <div class="org">Company name</div>
-          <ul>
-            <li>Action verb + what you did + measurable result.</li>
-            <li>Action verb + scope (budget, team size, volume) + impact.</li>
-            <li>Action verb + tool/method used + outcome.</li>
-          </ul>
-        </div>
+  <section>
+    <h2>Education</h2>
+    <div>
+      <div class="entry">
+        <div class="head"><h3>Degree / diploma title</h3><span class="date">2014 – 2019</span></div>
+        <div class="org">University or school · City, Country</div>
+        <ul><li>Specialisation, thesis topic or honours.</li></ul>
       </div>
-      <div class="item">
-        <div class="when">2019 – 2022<small>City, Country</small></div>
-        <div>
-          <h3>Job title</h3>
-          <div class="org">Company name</div>
-          <ul>
-            <li>Achievement with a number.</li>
-            <li>Responsibility that shows ownership.</li>
-          </ul>
-        </div>
-      </div>
-      <div class="item">
-        <div class="when">2017 – 2019<small>City, Country</small></div>
-        <div>
-          <h3>Internship / earlier role</h3>
-          <div class="org">Company name</div>
-          <ul><li>One strong line is enough here.</li></ul>
-        </div>
-      </div>
-    </section>
+    </div>
+  </section>
 
-    <section>
-      <h2>Education</h2>
-      <div class="item">
-        <div class="when">2014 – 2019</div>
-        <div>
-          <h3>Degree / Diploma title</h3>
-          <div class="org">University or school</div>
-          <ul><li>Specialisation, thesis topic or honours.</li></ul>
-        </div>
-      </div>
-    </section>
+  <section>
+    <h2>Skills</h2>
+    <div class="plain">
+      <p><b>Technical:</b> Skill one, Skill two, Skill three, Skill four</p>
+      <p><b>Tools:</b> Tool A, Tool B, Tool C, Tool D</p>
+      <p><b>Soft skills:</b> Skill, Skill, Skill</p>
+    </div>
+  </section>
 
-    <section>
-      <h2>Projects &amp; certifications</h2>
-      <div class="item">
-        <div class="when">2023</div>
-        <div><h3>Project or certificate name</h3><div class="org">Issuer / context</div></div>
+  <section>
+    <h2>Languages</h2>
+    <div class="cols">
+      <div class="row"><span>Language 1</span><span>Native</span></div>
+      <div class="row"><span>Language 2</span><span>Fluent</span></div>
+      <div class="row"><span>Language 3</span><span>Intermediate</span></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Projects &amp; certificates</h2>
+    <div>
+      <div class="entry">
+        <div class="head"><h3>Project or certificate name</h3><span class="date">2023</span></div>
+        <div class="org">Issuer / context</div>
       </div>
-    </section>
-  </main>
+    </div>
+  </section>
+
+  <section>
+    <h2>Interests</h2>
+    <div class="plain"><p>Interest 1 · Interest 2 · Interest 3</p></div>
+  </section>
 
 </div>
 </body>
