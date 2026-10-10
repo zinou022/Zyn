@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>CV Template – BUTEC style</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  /* BUTEC palette (from the logo). Orange is used sparingly: edit here only. */
+  :root{
+    --orange:#FAA21C;
+    --text:#1a1a1a;
+    --muted:#7a7a7a;
+    --line:#e4e4e4;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{background:#e9e9e9}
+  body{
+    font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+    color:var(--text);font-size:9.5pt;line-height:1.5;
+    -webkit-print-color-adjust:exact;print-color-adjust:exact;
+  }
+  .page{
+    width:210mm;height:297mm;margin:10mm auto;background:#fff;
+    padding:16mm 18mm 14mm;position:relative;overflow:hidden;
+    box-shadow:0 4px 20px rgba(0,0,0,.15);
+  }
+  .page::before{            /* the only strong accent: a thin orange top edge */
+    content:"";position:absolute;left:0;right:0;top:0;height:2.2mm;background:var(--orange);
+  }
+
+  /* ---------- header ---------- */
+  header{display:flex;justify-content:space-between;align-items:flex-start}
+  h1{font-size:24pt;font-weight:300;letter-spacing:.01em;line-height:1.1}
+  h1 b{font-weight:700}
+  .role{margin-top:2mm;font-size:10.5pt;color:var(--muted);letter-spacing:.04em}
+  .logo{height:9mm;display:block;margin-top:1mm}
+
+  .contact{
+    display:flex;flex-wrap:wrap;gap:1mm 7mm;margin-top:7mm;padding:3.2mm 0;
+    border-top:.25mm solid var(--line);border-bottom:.25mm solid var(--line);
+    font-size:8.8pt;color:#444;
+  }
+
+  /* ---------- sections: label column + content column ---------- */
+  section{
+    display:grid;grid-template-columns:34mm 1fr;column-gap:6mm;
+    padding:5mm 0 0;
+  }
+  section h2{
+    font-size:7.8pt;font-weight:600;letter-spacing:.16em;text-transform:uppercase;
+    color:var(--muted);padding-top:.8mm;
+  }
+  .entry{margin-bottom:4mm}
+  .entry:last-child{margin-bottom:0}
+  .entry .head{display:flex;justify-content:space-between;gap:4mm}
+  .entry h3{font-size:10pt;font-weight:600}
+  .entry .date{font-size:8.6pt;color:var(--muted);white-space:nowrap}
+  .entry .org{font-size:9pt;color:var(--muted);margin-bottom:1mm}
+  .entry ul{list-style:none}
+  .entry li{position:relative;padding-left:3.5mm;margin-bottom:.6mm}
+  .entry li::before{
+    content:"";position:absolute;left:0;top:2.1mm;width:1.4mm;height:.3mm;background:var(--orange);
+  }
+  .plain p{margin-bottom:1mm}
+  .cols{display:grid;grid-template-columns:1fr 1fr;gap:0 8mm}
+  .row{display:flex;justify-content:space-between;border-bottom:.2mm solid #f0f0f0;padding:.7mm 0}
+  .row span:last-child{color:var(--muted)}
+
+  @page{size:A4;margin:0}
+  @media print{html{background:none}.page{margin:0;box-shadow:none}}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header>
+    <div>
+      <h1>First <b>Lastname</b></h1>
+      <div class="role">Job title · Specialty</div>
+    </div>
+    <img class="logo" src="butec-logo.jpg" alt="BUTEC">
+  </header>
+
+  <div class="contact">
+    <span>+00 000 000 000</span>
+    <span>name@email.com</span>
+    <span>City, Country</span>
+    <span>linkedin.com/in/yourname</span>
+  </div>
+
+  <section>
+    <h2>Profile</h2>
+    <div class="plain"><p>Two to three lines: who you are, what you do best and what you are looking for. Lead with your strongest strength and one measurable result.</p></div>
+  </section>
+
+  <section>
+    <h2>Experience</h2>
+    <div>
+      <div class="entry">
+        <div class="head"><h3>Job title</h3><span class="date">2022 – Present</span></div>
+        <div class="org">Company name · City, Country</div>
+        <ul>
+          <li>Action verb + what you did + measurable result.</li>
+          <li>Action verb + scope (budget, team size, volume) + impact.</li>
+          <li>Action verb + tool or method + outcome.</li>
+        </ul>
+      </div>
+      <div class="entry">
+        <div class="head"><h3>Job title</h3><span class="date">2019 – 2022</span></div>
+        <div class="org">Company name · City, Country</div>
+        <ul>
+          <li>Achievement with a number.</li>
+          <li>Responsibility that shows ownership.</li>
+        </ul>
+      </div>
+      <div class="entry">
+        <div class="head"><h3>Internship / earlier role</h3><span class="date">2017 – 2019</span></div>
+        <div class="org">Company name · City, Country</div>
+        <ul><li>One strong line is enough here.</li></ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Education</h2>
+    <div>
+      <div class="entry">
+        <div class="head"><h3>Degree / diploma title</h3><span class="date">2014 – 2019</span></div>
+        <div class="org">University or school · City, Country</div>
+        <ul><li>Specialisation, thesis topic or honours.</li></ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Skills</h2>
+    <div class="plain">
+      <p><b>Technical:</b> Skill one, Skill two, Skill three, Skill four</p>
+      <p><b>Tools:</b> Tool A, Tool B, Tool C, Tool D</p>
+      <p><b>Soft skills:</b> Skill, Skill, Skill</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Languages</h2>
+    <div class="cols">
+      <div class="row"><span>Language 1</span><span>Native</span></div>
+      <div class="row"><span>Language 2</span><span>Fluent</span></div>
+      <div class="row"><span>Language 3</span><span>Intermediate</span></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Projects &amp; certificates</h2>
+    <div>
+      <div class="entry">
+        <div class="head"><h3>Project or certificate name</h3><span class="date">2023</span></div>
+        <div class="org">Issuer / context</div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Interests</h2>
+    <div class="plain"><p>Interest 1 · Interest 2 · Interest 3</p></div>
+  </section>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>CV Template – Classic</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  :root{--accent:#1f3a5f;--text:#1c1c1c;--muted:#6a6a6a;--line:#cfd6df}
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{background:#e9e9e9}
+  body{font-family:Calibri,"Helvetica Neue",Helvetica,Arial,sans-serif;color:var(--text);
+       font-size:10pt;line-height:1.45;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .page{width:210mm;height:297mm;margin:10mm auto;background:#fff;padding:17mm 20mm 14mm;
+        box-shadow:0 4px 20px rgba(0,0,0,.15);overflow:hidden}
+  h1{font-family:Georgia,"Times New Roman",serif;font-size:27pt;font-weight:400;letter-spacing:.01em;color:var(--accent);line-height:1.1}
+  .headline{margin-top:1.5mm;font-size:11.5pt;color:var(--muted)}
+  .contact{margin-top:3mm;font-size:9.2pt;color:#444}
+  .contact span+span::before{content:"|";margin:0 2.5mm;color:var(--line)}
+  h2{font-family:Georgia,"Times New Roman",serif;font-size:10.5pt;font-weight:700;color:var(--accent);
+     letter-spacing:.08em;text-transform:uppercase;padding-bottom:1mm;margin:6.5mm 0 3mm;
+     border-bottom:.3mm solid var(--line)}
+  .entry{margin-bottom:3.8mm}
+  .top{display:flex;justify-content:space-between;align-items:baseline;gap:4mm}
+  .top b{font-size:10.5pt}
+  .top .date{font-size:9.2pt;color:var(--muted);white-space:nowrap}
+  .sub{font-style:italic;color:#444}
+  ul{margin:1mm 0 0 4.5mm}
+  li{margin-bottom:.8mm;padding-left:.5mm}
+  li::marker{color:var(--accent)}
+  .skills p{margin-bottom:1mm}
+  .skills b{display:inline-block;min-width:26mm}
+  @page{size:A4;margin:0}
+  @media print{html{background:none}.page{margin:0;box-shadow:none}}
+</style>
+</head>
+<body>
+<div class="page">
+  <h1>First Lastname</h1>
+  <div class="headline">Job title · Specialty</div>
+  <div class="contact"><span>name@email.com</span><span>+00 000 000 000</span><span>City, Country</span><span>linkedin.com/in/yourname</span></div>
+
+  <h2>Summary</h2>
+  <p>Two to three lines: who you are, what you do best and what you are looking for. Lead with your strongest strength and one measurable result.</p>
+
+  <h2>Experience</h2>
+  <div class="entry">
+    <div class="top"><b>Company name</b><span class="date">2022 – Present</span></div>
+    <div class="top"><span class="sub">Job title</span><span class="date">City, Country</span></div>
+    <ul>
+      <li>Action verb + what you did + measurable result.</li>
+      <li>Action verb + scope (budget, team size, volume) + impact.</li>
+      <li>Action verb + tool or method + outcome.</li>
+    </ul>
+  </div>
+  <div class="entry">
+    <div class="top"><b>Company name</b><span class="date">2019 – 2022</span></div>
+    <div class="top"><span class="sub">Job title</span><span class="date">City, Country</span></div>
+    <ul>
+      <li>Achievement with a number.</li>
+      <li>Responsibility that shows ownership.</li>
+    </ul>
+  </div>
+  <div class="entry">
+    <div class="top"><b>Company name</b><span class="date">2017 – 2019</span></div>
+    <div class="top"><span class="sub">Internship / earlier role</span><span class="date">City, Country</span></div>
+    <ul><li>One strong line is enough here.</li></ul>
+  </div>
+
+  <h2>Education</h2>
+  <div class="entry">
+    <div class="top"><b>University or school</b><span class="date">2014 – 2019</span></div>
+    <div class="top"><span class="sub">Degree / diploma title</span><span class="date">City, Country</span></div>
+  </div>
+
+  <h2>Skills</h2>
+  <div class="skills">
+    <p><b>Technical</b>Skill one, Skill two, Skill three, Skill four</p>
+    <p><b>Tools</b>Tool A, Tool B, Tool C, Tool D</p>
+    <p><b>Languages</b>Language 1 (native), Language 2 (fluent), Language 3 (intermediate)</p>
+  </div>
+
+  <h2>Projects &amp; certificates</h2>
+  <div class="top"><span><b>Project or certificate name</b> <span class="sub">– issuer / context</span></span><span class="date">2023</span></div>
+</div>
+</body>
+</html>
